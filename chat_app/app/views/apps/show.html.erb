@@ -1,0 +1,9 @@
+<h1><%= @app.name %></h1>
+
+<p>Admin: <%= User.find(@app.admin_id).name %></p>
+
+<% if @conversation.nil? %>
+	No conversation yet. Start a conversation by sending a new message.
+<% else %>
+	<%= render 'messages/messages', conversation: @conversation %>
+<% end %> 

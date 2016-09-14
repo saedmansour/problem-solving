@@ -1,0 +1,5 @@
+<%= form_for [ @app, Message.new ], remote: true do |form| %>
+	<%= hidden_field_tag 'conversation_id', @conversation.id %>
+  <%= form.text_area :body, size: '100x20' %><br>
+  <%= form.submit 'Post message' %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Pick a conversation:</h1>
+
+<p>
+  <ul>
+    <% @conversations.each do |conversation| %>
+      <li><%= conversation.client.name %></li>
+    <% end %>
+  </ul>
+</p>
