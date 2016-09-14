@@ -1,0 +1,552 @@
+
+/* ------------------------------- 
+  		Fonts 												 
+ 	 ------------------------------- */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Dosis|Tauri|PT+Sans+Narrow|Patrick+Hand+SC|Sniglet|Gochi+Hand|Shadows+Into+Light|McLaren|Roboto|Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200italic,400italic|Fira+Sans:300,400,300italic|PT+Sans:400,400italic|Bad+Script|Allerta|Archivo+Narrow:400,400italic|Satisfy|Oregano:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic);
+
+/* ------------------------------- 
+  		Main 												 
+ 	 ------------------------------- */
+
+ 	 
+
+#logo-image {
+	width: 50px;
+	padding: 10px;
+}
+
+#image-container {
+	cursor: pointer;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	border-radius: 50%;
+	background-color: black;
+	padding: 5px;
+	display: inline-block;
+	opacity: 0.7;
+	transition: opacity 2.0s ease;
+}
+
+#image-container:hover {
+	opacity: 1.0;
+}
+
+#navigation-icon {
+	cursor: pointer;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	border-radius: 50%;
+	background-color: black;
+	padding: 5px;
+	display: inline-block;
+	opacity: 0.7;
+	transition: opacity 2.0s ease;
+}
+
+#navigation-icon:hover {
+	opacity: 1.0;
+}
+
+
+/* ------------------------------- 
+  		Post 					
+ 	 ------------------------------- */
+
+body {
+	background-color: whitesmoke;
+	font-family: 'open sans';
+	overflow-y: hidden; /* for smoother scrolling effect */
+}
+
+.title a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.arrow {
+	width: 27px;
+	cursor: pointer;
+	transition: opacity 1.0s linear;
+		font-size: 2em;
+}
+
+.arrow:hover{
+	opacity: 0.5;
+	transition: opacity 1.0s linear;
+}
+
+#arrow-up {
+	position: relative;
+	margin: auto;
+	top: -15px;
+}
+
+#arrow-down {
+	position: relative;
+
+	margin: auto;
+	bottom: -15px;
+}
+
+.start-learning {
+	padding: 5px 20px 5px 20px;
+	background: transparent;
+	border: 2px solid black;
+	border-radius: 10px;
+	color: black;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	margin: auto;
+	text-align: center;
+	position: relative;
+	display: block;
+	top: 20px;
+	width: 40px;
+	transition: opacity 1.0s linear;
+}
+
+.start-learning:hover {
+	opacity: 0.4;
+	transition: opacity 1.0s linear;
+}
+
+.post {
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	-webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+.post .details-info ul {
+	font-family: 'Roboto';
+	list-style: none;
+	font-size: 14px;
+	/*width: 95%;*/
+	margin-left: 0px;
+}
+
+.post .details-info li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+#post-content {
+	position: relative;
+	top: 100px;
+	margin: auto;
+	display: block;
+}
+
+.post .subject {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	font-size: 16px;
+	/*border-bottom: grey dashed 1px;*/
+	font-family: 'gochi hand';
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 5px;
+}
+
+.post .title {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	font-size: 22px;
+	font-weight: bold;
+} 	 
+
+.post .content-container {
+	vertical-align: middle;
+	display: table; 
+	position: relative;
+	width: 70%;
+  top: 48%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+	margin-left: auto; margin-right: auto;
+}
+
+.post .content {
+	position: relative;
+	/* display: block; */
+	display: table-row; 
+
+	margin: auto;
+	width: 60%;
+	height: 60%;
+	background-color: rgba(255,255,255,0.6);;
+	padding: 40px;
+	height: auto;
+}
+
+/*.post .content:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}*/
+
+.post .details {
+	/*display: inline-block;*/
+	/*overflow:hidden;*/
+	margin: 5%;
+	display: table-column;
+	box-sizing: border-box; 
+	height: 100%;
+	width: 40%;
+	float: right;
+	background: rgba(255, 255, 255, 0.7);
+	padding: 20px;
+	margin-right: 7%;
+	position: relative;
+}
+
+.post .details {
+	display: block;
+	position: relative;
+	right: 2%;
+}
+
+.post .sample {
+	/*display: inline-block;*/
+	display: table-column; 
+	float: left;
+	padding: 5%;
+	margin-left: 5%;
+	max-width: 50%;
+	/*left: 10%;
+	position: relative;*/
+}
+
+
+.post .sample img {
+	display: block;
+	opacity: 0.9;
+	padding: 0px;
+	max-width: 290px;
+	max-height: 370px;
+	left: 20%;
+	position: relative;
+	/*-webkit-filter: grayscale(100%);*/
+	/*-webkit-filter: sepia(100%);
+	-webkit-filter: brightness(20%);
+	-webkit-filter: contrast(150%);*/
+}
+
+/* ------------------------------- 
+  		Path 					
+
+ 	 ------------------------------- */
+
+ #road-icon {
+	width: 50px;
+	height: 50px;
+	padding: 15px;
+	fill: whitesmoke;
+	cursor: pointer;
+}
+
+.content-style-sidebar ul li a {
+	color: whitesmoke;
+	text-decoration: none;
+	margin-left: 50px;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.morph-button {
+	top: 20px;
+	left: 20px;
+	position: absolute;
+}
+
+#road-icon:hover {
+	opacity: 0.7;
+}
+
+.morph-button > button {
+	background-color: black;
+	color: white;
+	border-radius: 50%;
+	border: 1px solid black;
+	width: 80px;
+	height: 75px;
+}
+
+.morph-button > button:focus {
+	outline: none;
+}
+
+.morph-button-sidebar .morph-content {
+	background: black;
+	color: whitesmoke;
+}
+
+.content-style-sidebar h2 {
+	font-size: 1.5em;
+	margin-left: 20px;
+	color: whitesmoke;
+	font-family: 'gochi hand';
+}
+
+.icon-close:hover {
+	color: whitesmoke;
+}
+
+
+/* ------------------------------- 
+  		ngView Animate 					
+
+ 	 ------------------------------- */
+
+
+
+
+
+
+
+
+.slidedown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.slidedown.ng-enter,
+.slidedown.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slidedown.ng-enter {
+    top: -100%;
+}
+.slidedown.ng-enter-active {
+    top: 0;
+}
+.slidedown.ng-leave {
+    top: 0;
+}
+.slidedown.ng-leave-active {
+    top: 100%;
+}
+
+.slideup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+.slideup.ng-enter,
+.slideup.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slideup.ng-enter {
+    top: 100%;
+}
+.slideup.ng-enter-active {
+    top: 0;
+}
+.slideup.ng-leave {
+    top: 0;
+}
+.slideup.ng-leave-active {
+    top: -100%;
+}
+
+
+
+/* ------------------------------- 
+  		intro to resources Partial
+
+ 	 ------------------------------- */
+
+
+	.main-container {
+		width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	position: absolute;
+		top: 0px;
+		left: 0px;
+
+	}
+
+
+
+	#page {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		width: 100%;
+	  /*background: url(images/backgrounds/bg11.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;*/
+	   z-index: -1;
+
+	  /*-webkit-animation: fadein ease-out 1s; */ /* Safari and Chrome */
+	}
+
+	.text-title-container {
+		color: black;
+	}
+
+	#message {
+		position: relative;
+		text-align: center;
+		top: 20vh;
+		display: block;
+		font-family: 'Lato', sans-serif;
+		font-weight: 100;
+		
+		
+		font-size: 3.5vw;
+
+		-webkit-animation:  fadein 2s; /* Safari and Chrome */
+       -moz-animation: fadein 2s; /* Firefox */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera */
+            animation: fadein 2s;
+	}
+
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+	#title {
+		position: relative;
+		text-align: center;
+		top: 22vh;
+		display: block;
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 5vw;
+		-webkit-animation: fadein ease-out 4s; /* Safari and Chrome */
+	}
+
+	#intro-logo {
+		position: absolute;
+		top: 5vh;
+		left: 5vw;
+		width: 5vw;
+		opacity: 1.0;
+		cursor: pointer;
+		transition: opacity 2.0s ease-out;
+	}
+
+	@media all and (max-width: 700px) and (min-width: 100px) {
+		#intro-logo { 
+			width: 10vw;
+		}
+	}
+
+	#intro-logo:hover{
+		opacity: 0.7;
+		transition: opacity 2.0s ease;
+	}
+
+	/*#start {
+		background-color: rgba(255,255,255, 0.2);
+		font-family: 'Lato', sans-serif;
+		color: white;
+		font-weight: 700;
+		border: 1px solid white;
+		padding: 10px;
+		width: 12vw;
+		margin: auto;
+		border-radius: 10px;
+		font-size: 1.4vw;
+		position: relative;
+		text-align: center;
+		top: 50vh;
+		cursor: pointer;
+		transition: opacity 1.0s ease-out;
+	}*/
+
+	#start {
+		font-family: 'Lato', sans-serif;
+		color: black;
+		font-weight: 700;
+		margin: auto;
+		border-radius: 10px;
+		font-size: 5vmax;
+		position: relative;
+		text-align: center;
+		top: 50vh;
+		cursor: pointer;
+		transition: opacity 1.0s ease-out;
+	}
+
+	#start:hover {
+		opacity: 0.7;
+		transition: opacity 2.0s ease;
+	}
+
+	#start {
+  	-webkit-animation-duration: 2s;
+  	-webkit-animation-delay: 1s;
+	}
+
+
+	/* ------------------------------- 
+  		post Types: youtube
+
+ 	 ------------------------------- */
+
+
+.post .youtube .details {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	width: 700px;
+	height: 450px;
+	margin-right: auto; margin-left: auto;
+	float: none;
+	right: 0%;
+	margin-top: 0; margin-bottom: 0;
+}
+
+.post .youtube .sample {
+	float: none;
+}
+
+.post .youtube iframe {
+	display: block;
+	margin: auto;
+	padding: 20px;
+}
+
+.post .youtube {
+	display: table;
+	padding: 0px;
+}
+
+.post .youtube .start-learning {
+	display :none;
+}

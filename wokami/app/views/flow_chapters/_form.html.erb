@@ -1,0 +1,12 @@
+<%= simple_form_for(@flow_chapter) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :flow_id %>
+    <%= f.input :chapter_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

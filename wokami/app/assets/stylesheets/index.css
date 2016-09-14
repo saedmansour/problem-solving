@@ -1,0 +1,311 @@
+
+/* ------------------------------- 
+  		Fonts 												 
+ 	 ------------------------------- */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Dosis|Tauri|PT+Sans+Narrow|Patrick+Hand+SC|Sniglet|Gochi+Hand|Shadows+Into+Light|McLaren|Roboto|Roboto+Condensed);
+
+
+/* ------------------------------- 
+  		Main 												 
+ 	 ------------------------------- */
+
+ 	 
+
+#logo-image {
+	width: 50px;
+	padding: 10px;
+}
+
+#image-container {
+	cursor: pointer;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	border-radius: 50%;
+	background-color: black;
+	padding: 5px;
+	display: inline-block;
+	opacity: 0.7;
+	transition: opacity 2.0s ease;
+}
+
+#image-container:hover {
+	opacity: 1.0;
+}
+
+
+/* ------------------------------- 
+  		Post 					
+ 	 ------------------------------- */
+
+body {
+	background-color: whitesmoke;
+	font-family: 'open sans';
+	overflow-y: hidden; /* for smoother scrolling effect */
+}
+
+.arrow {
+	width: 27px;
+	cursor: pointer;
+	transition: opacity 1.0s linear;
+}
+
+.arrow:hover{
+	opacity: 0.5;
+	transition: opacity 1.0s linear;
+}
+
+#arrow-up {
+	position: relative;
+	margin: auto;
+	top: 60px;
+	font-size: 2em;
+}
+
+#arrow-down {
+	position: relative;
+	font-size: 2em;
+	margin: auto;
+	bottom: -80px;
+}
+
+.start-learning {
+	padding: 5px 20px 5px 20px;
+	background: transparent;
+	border: 2px solid black;
+	border-radius: 10px;
+	color: black;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	margin: auto;
+	width: 35px;
+	text-align: center;
+	position: relative;
+	top: 20px;
+	display: block;
+	transition: opacity 1.0s linear;
+}
+
+.start-learning:hover {
+	opacity: 0.4;
+	transition: opacity 1.0s linear;
+}
+
+.post {
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+}
+
+.post .info {
+	font-family: 'Roboto';
+	list-style: none;
+	font-size: 12px;
+	width: 70%;
+	margin-left: 20px;
+}
+
+.post .info li {
+	padding: 5px;
+}
+
+
+#post-content {
+	position: relative;
+	top: 100px;
+	margin: auto;
+	display: block;
+}
+
+.post .subject {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	font-size: 16px;
+	/*border-bottom: grey dashed 1px;*/
+	font-family: 'gochi hand';
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 5px;
+}
+
+.post .title {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	font-size: 22px;
+	font-weight: bold;
+} 	 
+
+.post .content {
+	position: relative;
+	display: block;
+	top: 70px;
+	margin: auto;
+	width: 60%;
+	background-color: rgba(255,255,255,0.6);;
+	padding: 40px;
+	height: auto;
+}
+
+.post .content:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.post .details {
+	display: inline-block;
+	overflow:hidden;
+	width: 60%;
+	height: 100%;
+	float: right;
+	background: rgba(255, 255, 255, 0.7);
+	box-sizing: border-box;
+  width: 50%;
+	padding: 20px;
+
+}
+
+.post .sample {
+	display: inline-block;
+	float: left;
+	left: 70px;
+	position: relative;
+}
+
+
+.post .sample img {
+	display: inline-block;
+	opacity: 0.9;
+	padding: 0px;
+	height: 380px;
+	/*-webkit-filter: grayscale(100%);*/
+	/*-webkit-filter: sepia(100%);
+	-webkit-filter: brightness(20%);
+	-webkit-filter: contrast(150%);*/
+}
+
+/* ------------------------------- 
+  		Path 					
+
+ 	 ------------------------------- */
+
+ #road-icon {
+	width: 50px;
+	height: 50px;
+	padding: 15px;
+	fill: whitesmoke;
+	cursor: pointer;
+}
+
+.content-style-sidebar ul li a {
+	color: whitesmoke;
+	text-decoration: none;
+	margin-left: 50px;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.morph-button {
+	top: 20px;
+	left: 20px;
+	position: absolute;
+}
+
+#road-icon:hover {
+	opacity: 0.7;
+}
+
+.morph-button > button {
+	background-color: black;
+	color: white;
+	border-radius: 50%;
+	border: 1px solid black;
+	width: 80px;
+	height: 75px;
+}
+
+.morph-button > button:focus {
+	outline: none;
+}
+
+.morph-button-sidebar .morph-content {
+	background: black;
+	color: whitesmoke;
+}
+
+.content-style-sidebar h2 {
+	font-size: 1.5em;
+	margin-left: 20px;
+	color: whitesmoke;
+	font-family: 'gochi hand';
+}
+
+.icon-close:hover {
+	color: whitesmoke;
+}
+
+
+/* ------------------------------- 
+  		ngView Animate 					
+
+ 	 ------------------------------- */
+
+
+.slidedown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.slidedown.ng-enter,
+.slidedown.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slidedown.ng-enter {
+    top: -100%;
+}
+.slidedown.ng-enter-active {
+    top: 0;
+}
+.slidedown.ng-leave {
+    top: 0;
+}
+.slidedown.ng-leave-active {
+    top: 100%;
+}
+
+.slideup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+.slideup.ng-enter,
+.slideup.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slideup.ng-enter {
+    top: 100%;
+}
+.slideup.ng-enter-active {
+    top: 0;
+}
+.slideup.ng-leave {
+    top: 0;
+}
+.slideup.ng-leave-active {
+    top: -100%;
+}

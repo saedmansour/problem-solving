@@ -1,0 +1,12 @@
+<style>
+	#main {
+		margin-left: 200px;
+		margin-top: 150px;
+	}
+</style>
+
+<ul>
+	<% @posts.each do |post| %>
+		<li><%= post.title %></li>
+	<% end %>
+</ul>

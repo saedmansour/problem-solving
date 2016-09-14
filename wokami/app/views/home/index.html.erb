@@ -1,0 +1,114 @@
+<% content_for :head do %>
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=Allan);
+		@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+		body { 
+			background-color: whitesmoke; 
+		}
+		#logo { 
+			height: 350px; position: relative; margin: auto; display: block; top: 100px; left: 25px;
+		}
+		#login-with-facebook {  
+			background-color: rgb(76, 102, 164); position: relative; margin: auto; top: 130px; color: white; font-size: 14px; font-family:'saedmansour'; padding: 10px;  width: 200px; text-align: center; border-radius: 3px; 
+		}
+		.login a {
+			color: inherit;
+		}
+		.login a:hover{
+			background-color: transparent;
+		}
+		#login-with-email {
+			background-color: #c0392b; position: relative; margin: auto; top: 140px; color: white; font-size: 14px; font-family:'saedmansour'; padding: 10px;  width: 200px; text-align: center; border-radius: 3px; 
+		}
+	</style>
+<% end %>
+
+
+	<img id="logo" src="<%= asset_path('wokami_bite_book.png')%>">
+	<div id="login-with-facebook" class="login"><%= link_to "Login With Facebook", user_omniauth_authorize_path(:facebook), :id => 'login' %></div>
+	<div id="login-with-email" class="login"><%= link_to "Login With Email", new_user_session_path %></div>
+
+	<div style="position: absolute; top: 12px; right: 20px; width: 200px; text-align: right; font-size: 12px; font-family: 'saedmansour'; display: none;">
+  	<% if user_signed_in? %>
+    	<%#= current_user.username %>
+      <%= current_user.name %> -   
+    	<%= link_to "logout", destroy_user_session_path, :method => :delete %>
+  	<% else %>
+      <%= link_to "Facebook Login", user_omniauth_authorize_path(:facebook), :id => 'login' %>,
+    	<%= link_to "Register", new_user_registration_path %>/
+    	<%= link_to "Login", new_user_session_path %>
+  	<% end %>
+  </div>
+<!--
+
+				..... Wokami .....
+
+			the earth is yours
+			but the moon night is mine
+			at night I wander
+			in the light of the moon
+			I hunt
+			for in the light of Our days
+			I see no road to lead me
+			so I wait all day
+			and when the moon visits the sky
+			I hunt to learn my purpose
+			I hunt to learn what I love
+
+				...../Wokami .....
+
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMDNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNN7ON87777MMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMDMN777ZNMMMMMMMMMMMMMMMMMMMMMMMMMN7777777$D$NMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMND$7777777NMMMMMMMMMMMMMMMMMMMMD7777$O77IIDZMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMN77ZZNZ77777ONMMMMMMMMMMMMMMMD7777ZD$77777Z$MMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMN7ZZZ$$$$N77777NMMMMMMMMMMMDI77$ZZ$$$$7777$OMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMD7DZZZ$$777OZ777DN$777777O7777ZDZZZ$$$$$7N$DMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMN7DZZZ$$777IIN$77777777777777ZOZZZZZZ$$$$Z$NMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMM7DZZZ$7NNND77777777777777777$ZZ8ZZZZZ$$8$$MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMM7$ZZZ$$ND77777777777777777777ZDO8ZZZZZZZ$DMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMD7ZD$$N77777777777777777777777ZZ8ZZZZZ8ZZMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMN7DO7N77777777777777777777777777ZZZZZZ$$NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMN7N7777777777777777..,,.+7777777Z$NZD$NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMN7N7777....77777.+~:::::,777777$$$$$NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMN877+.. ,:.77777~~:::::,.77777777$$DMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMD77.....,,77777$~:?=.I:..7777777777MNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMM8N$:....$~.~7777Z~N=....I.~777777NNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMN87777$.:N..D:7777Z:~......,,,,,,+7777NNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMN7777777......77777Z$+~:...,,,,,,,,:,::::DMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMD777?.....M:IMMMMNZ~~::.,,,,,,,,,:::~7NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMN77777.....DM..MMMMMD~~::,,,,,,,,:~~~DN$MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMD7,. ....... MMMMMMMND~~~:N=~~~~~::::8:NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMD$........ ..MMMMMN8~~~~OINI~~~::~::?NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMM~~~~====..:~~~~~~O??8I=~~?$+::::~NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMM~~~~~~=~==+???I?IZ+D+=OD=~~~~78::~NDMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMM:~~~~~~======??????D====$NI++7NI:=~NNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMN:~~~~~~=====++++?+==8++8=~~~=~~~:I~N8MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMN::~$ND7+==?8N?+++7++8+=N+=7D?~~?N:$~NONMMMMMMMMMMMM87NMMMMMMMMMMMMMMMMM
+MMMMMMMMD::,~~~=77?=+++D++Z+=?=D=====~I7~~~O~NO$NMMMMMMMMMMMN777ZNMMMMMMMMMMMMMM
+MMMMMMMMN::7DZ7++++78Z=+++8+8+++D====~~~~~:7~NO77DMMMMMMMMMMM77$77DMMMMMMMMMMMMM
+MMMMMMMM7::~~~~~=+++=+=+++8++O?==+$D7I88??ZD~NO777NMMMMMMMMMNZ7$$777NMDMMMMMMMMM
+MMMMMMMM::~~?NNO???$NN==++8++++DIDII$I?II??=~NO7777NMMMMMMMMNN7$$$777NMDMMMMMMMM
+MMMMMMMM:::~~~~~+++==+=I++8++NI?8?I77OIII?IO+DO$7777NMMMMMMMND7$$$$$7ZNNMMMMMMMM
+MMMMMMMN:::~~~~~~=====++++7+I?II$?IIO?7ZOOZ77D8$77777ODMMMMMD777$$$$77DN8MMNMMMM
+MMMMMMMN:::~~DN$?I7O7?DD8++7?7I$$?D?III?II?++Z8Z7777777NMNMMN777$$$$$7$MDMNDMMMM
+MMMMMMMN:N+I?IO$N?ZD$??$D888DNDD88888888888OOOOZ77777777N8ZMM777$$$$$77NNMONMMMM
+MMMMMMMDIII$8O8ND888888D8$$D,:,...77777$$ODNDOODDDND77777N77NZ77$$$$$$7NND7NMMMM
+MMMMMMMDOZ888DDMDD77787777$Z~~::~.7777777ZZN877777777ZO777N77D$$$$$$$$7ON7~NMMMM
+MMMMMMM8ODMMMMMN7777777777$$D::::,77777D.. 8Z7777777777N7$7N77$$$$$$$77D77~MMMNM
+MMMMMMMDMMMMMN$77777777777$$N:::::7777.?I~.,,N7777777777D$7$Z7$$$$$$$777$~DMMDNM
+8.:::,.NMMMMMN777777777777$$N:::::7778?:I~I=~87777777777$$$$NZZZ$$$$$7$7?~NMD=MM
+N:~77::,=NMMM77777777Z7777$$D:::::777Z:?I~~~D7777$$$$$777$$$DZZZZZZZ$Z$7~NN~~NMM
+M7I:7:::,:NMD7777777$:7777$.::::::777O.??~::$777$$$$$$$$7$$$OZZZZZ$ZZZI~NI:~7MMM
+MNZ77::::,,NM777777$:~7777$$::::::777N...:::777$$$$$$$$$7$$Z8ZZZZZZZ$~~=~~~~NMMM
+MMNZ$$::::,:MD77777?:D7777$N::,,,,777N.....O77$$$$$$$$$$OZZZDZZZZZ$7~~~=77~MMMMM
+MMMMN,,,,,,:+D7777,:,N777$.Z,,,,,,777N.....D7$$$$$$$$$$ZZZZZ8ZZZ777777777OMMMMMM
+MMMMMMN,,,,,:O777Z,,,7777$.,,,,,,O777Z....,8$$$$$$$$ZZZZZZZD77777777$77:NN8,,DMM
+MMMMMMMM?,,,,,Z777,,Z7777$,,,,,,,N777Z....,Z$$$$ZZZZZZZZZZZOOOOOOO777:8,::,,MMMM
+MMMMMMMMMD,,,,,$$,,,87777$.:,,,,.7777N...,,Z$ZZZZZZZZZZZZZDOOZ7777=:~:::,:NMMMMM
+MMMMMMMMMMM+,,,,,=+N7,777$,,...O77777N..,,,$ZZZZZZZZZZZZO?~~+7777+~:::,NMMMMMMMM
+MMMMMMMMMMMMD,..,DI.. ....N..I$:7.D7:Z ,,,,.Z$ZZZZ?ZZ88NMN$D7~~~~7DNMMMMMMMMMMMM
+MMMMMMMMMMMMMMND8ND..=..,NNDM=:..N...?........  . ..NMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMDD~,D...OD,.........NNMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+-->

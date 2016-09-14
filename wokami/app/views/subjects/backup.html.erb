@@ -1,0 +1,802 @@
+<%
+	def youtube_embed(youtube_url)
+  if youtube_url[/youtu\.be\/([^\?]*)/]
+    youtube_id = $1
+  else
+    # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+    youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+    youtube_id = $5
+  end
+
+  youtube_id
+end
+
+
+
+%>
+
+<% content_for :head do %>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+	<style>
+	@import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700|Signika:400,600|Montserrat|Roboto:400,700);
+
+
+
+	html {
+			overflow-y: scroll;
+		}
+
+		.video-post {
+			height: 330px !important;
+		}
+
+	.new-chapter {
+		position: absolute;
+		bottom: 20px;
+		left: 230px;
+		fill: black;
+	}
+
+	.fa-plus-square-o {
+		color: grey;
+		font-size: 2em;
+	}
+
+	.chapters-section a {
+		color: black;
+	}
+
+	.resources {
+	}
+
+	.resources ul{		
+	}
+
+	.resources ul li:nth-child(1) {
+	}
+
+	.resources ul li {
+		width: 110px;
+		height: 110px;
+		margin-top: 10px;
+		border: 1px solid silver;
+		line-height: 110px;
+		text-align: center;
+		font-size: 14px;
+		/*float: left;*/
+	}
+
+	.circle-chapters ul {
+		margin-left: -10px;
+	}
+
+/*
+	.circle-chapters ul {
+		list-style: none;
+	}
+	.circle-chapters ul li {
+		border-radius: 50%;
+		border: 1px solid;
+		border-color: grey;
+		margin-top: 10px;
+		width: 110px;
+		height: 110px;
+		text-align: center;
+		font-size: 14px;
+		text-transform:uppercase;
+	}
+*/
+
+	.chapters-section ul{
+		list-style: none;
+	}
+
+	.chapter-section-icon {
+		height: 40px;
+		width: 40px;
+	}
+
+	#post-new {
+	font-size: 1.5em;
+	color: whitesmoke;
+	opacity: 0.3;
+	position: absolute;
+	right: 60px;
+	top: 9px;
+	font-weight: none; 
+}
+
+#posts {
+	position: relative;
+	margin: auto;
+	width: 100%;
+	top: 50px;
+	margin-bottom: 100px;
+}
+
+#posts ul {
+	list-style: none;
+}
+
+.post {
+	position: relative;
+	min-height: 45px !important;
+	background-color: white;
+	margin: 10px;
+	border-radius: 5px;
+	padding: 10px;
+}
+		body, html{
+   		font-family: 'saedmansour';
+		}
+
+		.modal-vertical-centered {
+transform: translate(0, 50%) !important;
+-ms-transform: translate(0, 50%) !important; /* IE 9 */
+-webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
+}
+
+		.form-control:focus {
+			border-color: silver;
+			outline: 0;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px silver;
+			box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px silver;
+		}
+
+		#posts {
+			top: 140px;
+			list-style: none;
+			font-family: 'open sans';
+			font-weight: 700;
+			padding-bottom: 100px;
+		}
+		#posts li {
+			position: relative;
+			height: 150px;
+			width: 700px;
+			margin-left: auto; margin-right: auto;
+		}
+		#posts li .content {
+			position: relative;
+			top: 0px;
+			left: 60px;
+		}
+
+		#posts li .title{
+			font-size: 20px;
+			color: black;
+		}
+		#posts li .sub-title {
+			color: grey;
+			font-size: 14px;
+			font-family: 'saedmansour';
+		}
+		#posts li .author {
+			border-radius: 50%;
+			width: 60px;
+			position: absolute;
+			left: 60px;
+			top:15px;
+		}
+
+
+		#posts li .side-nav{
+			position: relative;
+			right: -70px;
+			top: 0px;
+			float: left;
+		}
+		#posts li .tags {
+			position: absolute;
+			width: 60px;
+			top: 120px;
+			right: -55px;
+			color: grey;
+			font-size: 11px;
+			font-family: 'saedmansour';
+		}
+		#posts li .tags ul {
+			list-style: none;
+			margin-left: -100px;
+		}
+		#posts li .tags li{
+			margin-top: 2px;
+			height: inherit;
+			
+			width: 100px;
+		}
+
+		#posts li .is-it{
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			color: grey;
+			font-size: 11px;
+		}
+		#posts li .is-it ul {
+			list-style: none;
+		}
+		#posts li .is-it ul li {
+			display: inline;
+			margin-top: 2px;
+			height: inherit;
+		}
+		.is-it a{
+			color: grey;
+			opacity: 0.7;
+		}
+		.is-it a:hover {
+			color: #c0392b;
+			border-bottom: #f1c40f 2px solid;
+			opacity: 1.0;
+		}
+
+		#posts li .points {
+			position: absolute;
+			left: 0px;
+			top: 12px;
+		}
+		.points .number {
+			color: #7f8c8d;
+			font-size: 12px;
+			position: relative;
+			width: 40px;
+			text-align: center;
+			left: -10px;
+			top: -2px;
+		}
+		.points .arrow {
+			fill: grey;
+		}
+		.points .arrow:hover{
+		}
+		.points .arrow-up {
+			top: 0px;
+		}
+		
+		.points .arrow-down {
+			top: 70px;
+		}
+		.points .arrow-down:hover{
+			fill: silver;
+		}
+		.points .arrow-up:hover {
+			fill: black;
+		}
+		
+		#posts li .bookmark {
+			position: absolute;
+			top: 0px;
+			right: 150px;
+			fill: #c0392b;
+			opacity: 0.6;
+		}
+		#posts li .bookmark:hover{
+			opacity: 1.0;
+		}
+		#posts li .settings {
+			/*position: absolute;
+			top: 0px;
+			left: 150px;*/
+			fill: grey;
+		}
+
+		#posts li a:hover{
+			text-decoration: none;
+		}
+
+		.modal-header {
+			border-bottom: none;
+		}
+		.modal-body {
+			padding-bottom: 10px;
+		}
+		.modal-footer {
+			border-top: none;
+			padding-top: 0px;
+		}
+		.button-no-background {
+			background-color: white; border: 2px solid lavender;
+		}
+		#icons-nav {
+			position: absolute;
+			background-color: whitesmoke;
+			bottom: 0px; left: 0px;
+			list-style: none;
+			margin-bottom: 0px;
+			margin-left: auto;margin-right: auto;
+			height: 50px;
+			padding: 0; margin: 0;
+			
+		}
+		#icons-nav li {
+			padding: 10px;
+			height: 50px;
+			display: inline-block;
+			margin: 0;
+			width: 55px;	
+			opacity:0.2;
+		}
+		#icons-nav img {
+			position: relative;
+		}
+		#icons-nav .title {
+			position: relative; bottom: 2px; left: 7px; font-size: 11px; color: black;
+		}
+
+		.red-lego {
+			width: 40px;
+			left: -2px;
+			top: 2px;
+		}
+		.tag {
+			width: 30px; 
+			margin-top: 10px;
+		}
+		.books {
+			width: 40px;
+			top: 4px;
+		}
+		.swissknife {
+			width: 30px;
+			top: 2px;
+		}
+
+		.chapters-section {
+			position: absolute;
+			top: 150px;
+			left: 100px;
+		}
+	</style>
+	<%= stylesheet_link_tag "helvatica", media: "all", "data-turbolinks-track" => true %>
+
+<% end %>
+
+
+
+<script>
+	var url ='<%= asset_path "icons.svg" %>';
+  var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
+  document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild);
+</script>
+
+
+ 
+  <% if can? :create, Post.new %>
+  	<button data-toggle="modal" data-target="#myModal" class="button-no-background btn" style=" position: absolute; right: 40px;margin-top: 80px; cursor: pointer; z-index: 1000;">New Post</button>
+	<% end %>
+
+	<div class="col-xs-4" id="left-nav" style="left: 0px; position: absolute; background-color: whitesmoke; width: 400px;">
+
+	<%# if @subject.subject_type == "featured" %>
+
+		<a href="/w/<%= @subject.short_name %>">
+			<svg class="chapter-section-icon" viewBox="0 0 32 32" style=" position: absolute; left: 180px;margin-top: 50px; cursor: pointer; fill: #e67e22;"><g filter=""><use xlink:href="#home4"></use></g></svg>
+		</a>
+
+				<div>
+				  <div class="chapters-section circle-chapters" id="guided" style="padding-bottom: 50px;">
+				  	<ul ng-controller="ChaptersCtrl">
+					  		<li ng-repeat="chapter in chapters" draw-chapter-directive ng-cloak>
+          				<a href="<%= url_for '/w/' + @subject.short_name + '/'  %>{{chapter.text}}"><canvas class="chapter-canvas" id="chapter-canvas-{{chapter.id}}" width="130" height="130"></canvas></a>
+        				</li>
+				  	</ul>
+				  	<% if can? :create, Chapter.new %>
+					  			<a href="/chapters/new/?subject_id=<%= @subject.id %>&chapter_type=basic"><div class="new-chapter" id="new-basic-chapter">
+					  				<button  class="button-no-background btn" style=" background-color: transparent; position: absolute; bottom: -10px; left: -190px; border-color: #3498db;">New Chapter</button>
+					  			</div></a>
+					  <% end %>
+				  </div>
+				</div>
+
+
+			<hr style="position: absolute; top: 80px; ; width: 100%;; left: 0px;" />
+		<%# end %> <!-- if featured-->
+
+	</div>
+  
+  <div class="col-xs-7" style="left: 400px; position: absolute;">
+
+  	<ul id="posts">
+  		<% @posts.each do |post| %>
+  		<li class="post">
+  			<div>
+  				
+  					<div class="content">
+  						<a href="<%= post.url %>" target="_blank">
+		  					<div class="title"><%= post.title %></div>
+		  				</a>
+		  				<div class="sub-title"><%= post.description %></div>
+		  				<!--<script src="http://momentjs.com/downloads/moment-with-langs.js"></script>-->
+		  				<div style="margin-top: 5px; font-weight: normal;  font-size: 10px;">
+		  							<script>
+		  								//$(document).ready(function () {
+		  									//$(".timez").each(function() {
+		  										//$(this).html(
+		  											//moment($(this).html()).fromNow()
+		  										 //);
+		  									//})
+		  								//});
+		  							</script>
+		  							<script>
+		  							 		function showComments(element) {
+		  							 			$(element).nextAll('.comments').toggle("slow");
+		  							 		}
+		  							 		function showNotes(element) {
+		  							 			$(element).nextAll('.notes').toggle("slow");
+		  							 		}
+	  							 		</script>
+		  							<!--<span style="color: #f39c12; font-weight: bold; cursor: pointer;" onclick="showNotes(this)">
+		  								notes
+		  							</span>
+		  							<span style="color: #2980b9; font-weight: bold; cursor: pointer;" onclick="showComments(this)">
+		  								comments - 
+		  							</span>-->
+		  							<span>
+		  								<%= time_ago_in_words post.created_at, :nojs => true %> ago
+		  							</span>
+		  							 - by <b><%= post.user.username.nil? ?  post.user.name : post.user.username %></b> 
+		  							- 
+		  							 <span id="host<%= post.id %>">
+		  							 </span>
+		  							 <script>
+		  							 function youtube(youtubeurl) {
+		  							 	var regex = /(\?v=|\&v=|\/\d\/|\/embed\/|\/v\/|\.be\/)([a-zA-Z0-9\-\_]+)/;
+									    var regexyoutubeurl = youtubeurl.match(regex);
+									    if (regexyoutubeurl) {
+									         //
+									    }
+		  							 }
+
+		  							 	//domain's url
+		  							 	var tmp = document.createElement ('a');
+		  							 	tmp.href   = "<%= post.url %>";
+		  							 	//document.write()
+		  							 	$("#host<%= post.id %>").html(tmp.host.replace('www.',''));
+		  							 	if(tmp.host == "www.youtube.com") {
+		  							 		//youtube(tmp.href);
+		  							 	}
+		  							 </script>
+		  							 
+		  							 <% if URI(post.url).host == "www.youtube.com"%>
+
+		  							 		<div>
+		  							 		<svg  onclick="play(this)" data-url="<%= youtube_embed(post.url) %>" viewBox="0 0 32 32" style="margin-top: 10px; cursor: pointer;fill: maroon;width: 15px; height: 15px; display: block;"><g filter=""><use xlink:href="#play1"></use></g></svg>
+		  							 		<div class="video" style="display: none;">
+		  							 			
+		  							 		</div>
+		  							 		<script>
+		  							 		function play(element) {
+		  							 			$(element).next().toggle("slow");
+		  							 			$(element).closest('li').toggleClass("video-post");
+
+		  							 			
+
+		  							 			postUrl = $(element).data('url');
+		  							 			youtubeIframe = 
+		  							 			'<iframe style="display: visible; margin-top: 10px;" width="320" height="180" src="http://www.youtube.com/embed/' + postUrl + '" frameborder="0" allowfullscreen></iframe>';
+
+		  							 			$(element).next().html(youtubeIframe);
+
+
+		  							 		}
+		  							 		</script>
+		  							 		</div>
+		  							 <% end %>
+
+		  							 	<div class="notes" style="color: grey; margin-top: 10px; display: none;">
+												Notes coming soon! ^__^
+											</div>
+		  							 <div class="comments" style="color: grey; margin-top: 10px; display: none;">
+												Comments coming soon! ^^
+		  							 	<!--
+		  							 		<form action="/w/">
+		  							 			<input type="text" /><button type="submit" />
+		  							 		</form>
+		  							 		<ul>
+		  							 		<% post.comments.each do |comment| %>
+		  							 		 <li><%= comment.comment %></li>
+		  							 		<% end %>
+		  							 		</ul>-->
+		  							 </div>
+		  				</div>
+		  			</div>
+		  		
+	  			<div class="points">
+	  				<div class="arrow-up arrow" data-id="<%= post.id %>">
+	  					<svg viewBox="0 0 32 32" style="width: 20px; height: 20px;"><g filter=""><use xlink:href="#arrow-up3"></use></g></svg>
+	  				</div>
+	  				<div class="number"><%= post.votes.size %></div>
+	  				<div class="arrow-down arrow" data-id="<%= post.id %>">
+	  					<svg viewBox="0 0 32 32" style="width: 20px; height: 20px;"><g filter=""><use xlink:href="#arrow-down3"></use></g></svg>
+	  				</div>
+	  				
+	  			</div>
+  			</div>
+  		</li>
+  		<% end %>
+  	</ul>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-vertical-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div class="modal-title" id="myModalLabel"></div>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" action="/w/<%= @subject.short_name %>" method="post">
+				  <div class="form-group">
+				    <label for="url" class="col-sm-2 control-label">URL*</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" name="post[url]" placeholder="URL" required="required">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword" class="col-sm-2 control-label">Title*</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" name="post[title]" placeholder="Title" required="required">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword" class="col-sm-2 control-label">Description</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" name="post[description]" placeholder="What will you learn from this?">
+				    </div>
+				  </div>
+				  <input type="hidden" name="post[subject_id]" value="<%= @subject.id %>" />
+				  <input type="hidden" name="post[user_id]" value="<%= current_user.id unless current_user.nil? %>" />
+					<input type="hidden" name="post[chapter_id]" value="<%= @chapter.id unless @chapter.nil? %>" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn button-no-background" type="submit" onclick="javascript:$('form').submit();">Publish</button>
+        </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<!--<a href="<%#= url_for '/w/' + @subject.short_name + '/' + chapter.name %>"><li><span style="position: relative; top: 35px;"><%#= chapter.name %></span></li></a>-->
+			  		
+
+
+<script>
+function insertParam(key, value) {
+        key = escape(key); value = escape(value);
+
+        var kvp = document.location.search.substr(1).split('&');
+        if (kvp == '') {
+            document.location.search = '?' + key + '=' + value;
+        }
+        else {
+
+            var i = kvp.length; var x; while (i--) {
+                x = kvp[i].split('=');
+
+                if (x[0] == key) {
+                    x[1] = value;
+                    kvp[i] = x.join('=');
+                    break;
+                }
+            }
+
+            if (i < 0) { kvp[kvp.length] = [key, value].join('='); }
+
+            //this will reload the page, it's likely better to store this until finished
+            document.location.search = kvp.join('&');
+        }
+}
+
+
+</script>
+
+
+
+
+<script>
+	function vote(is_up, post_id, element) {
+		data = {
+			user_id : <%= current_user.id unless current_user.nil?  %>,
+			post_id : post_id,
+			is_vote_up : is_up
+		};
+		
+		$.ajaxSetup({
+      headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }});
+
+		$.ajax({ url: '/posts/vote', context: document.body, method: 'post', data: data}).done(function(result) {
+			element.closest('.points').find('.number').html(JSON.parse(result).new_score);
+    });
+	}
+	$('.arrow-up').click(function() {
+   	vote(true, $(this).data('id'), $(this))
+	});
+
+	$('.arrow-down').click(function() {
+    vote(false, $(this).data('id'), $(this))
+	});
+
+  var url ='<%= asset_path "icons.svg" %>';
+  var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
+  document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild);
+</script>
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+	$('.tab-link svg').css({ opacity: 0.3 });
+	$('.tab-link svg').click(function() {
+		$('.tab-link svg').css({ opacity: 0.3 });
+		$(this).css({ opacity: 1.0 });
+	})
+
+	switch("<%= @chapter.chapter_type unless @chapter.nil? %>")
+	{
+		case "basic":
+  		tabNumber = 2;
+  		break;
+		case "resource":
+  		tabNumber = 0;
+  		break;
+		default:
+  		tabNumber = 2;
+	}
+
+	<% if !@tag.nil? && @tag != "" %>
+		tabNumber = 1;
+	<% end %>
+
+  $(document).ready(function() {
+    $("#tabs").tabs({
+  		active: tabNumber,
+   		activate: function( event, ui ){
+			}
+		});
+		$($(".tab-link svg")[tabNumber]).css({ opacity: 1.0 });
+ 	});
+
+
+</script>
+
+
+
+
+<!-- Angular - Draw Circles Per Chapter + Progress Arc -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+<script>
+
+
+
+ wokamiApp = angular.module('wokamiApp', []);
+
+
+ 	wokamiApp.directive('drawChapterDirective', function($timeout) {
+  return function(scope, element, attrs) {
+    //angular.element(element).css('color','blue');
+    //alert("what" + i++)
+    $timeout(function () { 
+    	pointsToAngle = scope.chapter.points*2*Math.PI * 0.01 - 0.5 * Math.PI;
+    	drawChapterCircle("chapter-canvas-" + scope.chapter.id, scope.chapter.text, pointsToAngle);
+    });
+  };
+	});
+ 
+	wokamiApp.controller('ChaptersCtrl', function ($scope) {
+  $scope.chapters = [
+  	<% @chapters_basics.each do |chapter| %>
+  			<% if current_user  %>
+  				<% p =  Points.where(:user => current_user, :chapter => chapter).first; %>
+  			<% end %>
+    		{text:'<%= chapter.name %>',  id: <%= chapter.id %>, points: <%= p.nil? ? 15 : p.size; %>},
+    <% end %>
+  ];
+	});
+
+angular.element(document).ready(function() {
+		//element = $(document);
+    //if (element.injector()) {
+    //  alert("FUCK FUCK FUCK");
+    //} else {
+   	//	angular.bootstrap(document, ['wokamiApp']); 	
+    //}
+
+    angular.bootstrap(document.body, ['wokamiApp']); 
+
+
+   	$('#left-nav').css('height', ($(document).height()));	
+});
+
+
+function retinaFix(context, canvas) {
+  // finally query the various pixel ratios
+  devicePixelRatio = window.devicePixelRatio || 1,
+  backingStoreRatio = context.webkitBackingStorePixelRatio ||
+                      context.mozBackingStorePixelRatio ||
+                      context.msBackingStorePixelRatio ||
+                      context.oBackingStorePixelRatio ||
+                      context.backingStorePixelRatio || 1,
+
+  ratio = devicePixelRatio / backingStoreRatio;
+
+  // ensure we have a value set for auto.
+  // If auto is set to false then we
+  // will simply not upscale the canvas
+  // and the default behaviour will be maintained
+  if (typeof auto === 'undefined') {
+      auto = true;
+  }
+
+  // upscale the canvas if the two ratios don't match
+  if (auto && devicePixelRatio !== backingStoreRatio) {
+
+      var oldWidth = canvas.width;
+      var oldHeight = canvas.height;
+
+      canvas.width = oldWidth * ratio;
+      canvas.height = oldHeight * ratio;
+
+      canvas.style.width = oldWidth + 'px';
+      canvas.style.height = oldHeight + 'px';
+
+      // now scale the context to counter
+      // the fact that we've manually scaled
+      // our canvas element
+      context.scale(ratio, ratio);
+  }
+}
+
+var i = 0;
+
+function nextColor() {
+	colors = ["#c0392b", "#3498db", "#e67e22", "#1abc9c", "#9b59b6", "brown", "#FF69B4"];
+	return colors[(i++)%colors.length]
+}
+
+function drawChapterCircle(canvasId, name, endAngle) {
+  var canvas = document.getElementById(canvasId);
+  var context = canvas.getContext('2d');
+  var x = canvas.width / 2;
+  var y = canvas.height / 2;
+  var radius = 60;
+  var startAngle = -0.5 * Math.PI;
+  //var endAngle = 0.5 * Math.PI;
+  var counterClockwise = false;
+
+  retinaFix(context, canvas);
+
+  context.beginPath();
+  context.arc(x, y, radius, 0, 2*Math.PI, counterClockwise);
+  context.lineWidth = 1;
+
+  // line color
+  context.strokeStyle = 'silver';
+  context.stroke();
+
+  context.beginPath();
+  context.arc(x, y, radius-10, startAngle, endAngle, counterClockwise);
+  context.lineWidth = 5;
+  context.strokeStyle = nextColor();;
+  context.stroke();
+
+  context.font = " 12px open sans";
+  context.textAlign = "center"
+  context.fillText(name.toUpperCase(), x, y);
+}
+</script>	
+
+
+

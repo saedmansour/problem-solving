@@ -1,0 +1,84 @@
+@import url(http://fonts.googleapis.com/css?family=Sintony);
+@import url(http://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+body {
+	background-color: whitesmoke;
+}
+
+header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index : 999;
+	border-bottom: 2px solid rgba(205, 92, 92,0.99);
+}
+
+#logo img {
+	height: 70px;
+	position: relative;
+	top: 5px;
+	left: 15px;
+	float: left;
+}
+
+#logo h1 {
+	display: inline-block;
+	position: relative;
+	left: 60px;
+	top: -5px;
+	font-family: 'Open Sans', sans-serif;
+	color: black;
+	font-size: 14px;
+}
+
+#learnings ul {
+	list-style: none;
+}
+
+#logoff {
+	font-size: 1.5em;
+	opacity: 0.4;
+	color: black;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+}
+
+#post-new {
+	font-size: 1.5em;
+	color: whitesmoke;
+	opacity: 0.3;
+	position: absolute;
+	right: 60px;
+	top: 9px;
+	font-weight: none; 
+}
+
+#posts {
+	position: relative;
+	margin: auto;
+	width: 100%;
+	top: 50px;
+	margin-bottom: 100px;
+}
+
+#posts ul {
+	list-style: none;
+}
+
+.post {
+	position: relative;
+	min-height: 45px !important;
+	background-color: white;
+	margin: 10px;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+a {
+	text-decoration: none;
+}

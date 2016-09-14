@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="wokamiApp">
+	<head>
+		<title>wokami</title>
+		<style>
+			body {
+				background-color:  #8ADCB3;
+			}
+
+			button {
+width: 65px;
+height: 26px;
+font-size: 0.7em;
+padding: 1px;
+border: 2px solid rgb(255, 255, 255);
+border: 2px solid rgba(255, 255, 255, .5);
+background-color: transparent !important;
+color: #ffffff;
+margin-bottom: 10px;
+text-align: center;
+text-decoration: none;
+text-shadow: none;
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+-webkit-transition: 0.25s;
+-moz-transition: 0.25s;
+-o-transition: 0.25s;
+transition: 0.25s;
+-webkit-backface-visibility: hidden;
+cursor: pointer;
+display: block;
+margin:auto;
+margin-top: 10px;
+}
+
+	button:hover {
+		border: 2px solid rgb(255, 255, 255);
+	}
+
+
+		</style>
+	</head>
+
+	<body>
+		<svg id="road-icon" viewBox="0 0 32 32" style="position: relative; display: block;margin: auto; margin-top: 100px;;width: 100px; height: auto; fill: white;"><g filter=""><use xlink:href="#compass"></use></g></svg>
+
+		<div style="position: relative; margin-top: 50px;">
+			<button>cursing</button>
+			<button>music</button>
+			<button>script</button>
+			<button>sounds</button>
+			<button>fun facts</button>
+		</div>
+
+
+		
+
+		<script>
+			// svg icons request file
+			var url = '/assets/iconmelon.svg';
+  		var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
+  		document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild);
+		</script>
+	</body>
+</html>

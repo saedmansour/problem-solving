@@ -1,0 +1,136 @@
+
+<style>
+	@import url(http://fonts.googleapis.com/css?family=open-sans|Dosis|Tauri|PT+Sans+Narrow|Patrick+Hand+SC|Sniglet|Gochi+Hand|Shadows+Into+Light|McLaren|Roboto|Roboto+Condensed);
+
+.button-1{
+	-webkit-appearance: none;
+-webkit-user-select: none;
+-webkit-writing-mode: horizontal-tb;
+align-items: flex-start;
+background-color: transparent;
+background-image: none;
+border-color: rgba(185,104,110,1.0);
+border-bottom-left-radius: 4px;
+border-bottom-right-radius: 4px;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-image-outset: 0px;
+border-image-repeat: stretch;
+border-image-slice: 100%;
+border-image-source: none;
+border-image-width: 1;
+
+border-left-style: solid;
+border-left-width: 2px;
+
+border-right-style: solid;
+border-right-width: 2px;
+
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+border-top-style: solid;
+border-top-width: 2px;
+box-sizing: border-box;
+color: rgb(0, 0, 0);
+cursor: pointer;
+display: block;
+font-family: 'open sans';
+font-size: 14px;
+font-weight: normal;
+height: 36px;
+letter-spacing: normal;
+line-height: 20px;
+padding-bottom: 6px;
+padding-left: 12px;
+padding-right: 12px;
+padding-top: 6px;
+text-align: center;
+text-indent: 0px;
+text-shadow: none;
+text-transform: none;
+vertical-align: middle;
+
+}
+
+	body {
+		font-family: 'Open Sans','Roboto', Helvetica, Arial, sans-serif;
+	}
+
+	#quizzer {
+		position: relative;
+		top: 20px;
+	}
+
+	#question {
+		list-style: none;
+	}
+
+	#question label {
+		width: 100%;
+		cursor: pointer;
+	}
+
+	#question li {
+		background-color: rgba(185,104,110,1.0);
+		color: white;
+		padding: 10px;
+		margin-top: 20px;
+		font-size: 16px;
+		font-weight: normal;
+	}
+
+	#next-button {
+		position: relative;
+		top: 30px;
+		float: right;
+		/*padding: 10px 20px 10px 20px;
+		border: 0px solid silver;
+		border-radius: 8px;
+		background-color: rgb(145,67,73);*/
+		color: black;
+		font-size: 16px;
+	}
+	#next-button:focus{
+		outline: 0;
+	}
+
+	label:before {
+	content: "";
+	display: inline-block;
+
+	width: 24px;
+	height: 30px;
+
+	margin-right: 10px;
+	position: absolute;
+	left: 2px;
+	bottom: 10px;
+	background-color: rgba(185,104,110,0.0);
+}
+
+.something {
+	position: relative;
+}
+
+
+	#next-button:hover{
+		opacity: 0.7;
+	}
+	#question-content {
+		font-size: 22px;
+	}
+</style>
+
+<form action="/quizzer" method="post" id="quizzer">
+  <div id="question-content"><%= @question.content %></div>
+  <ul id="question">
+    <% @question.answers.each do |answer| %>
+    <div class="something">
+      <label for="<%= answer.id %>"><li><input type="radio" name="answer_id" value="<%= answer.id %>" id="<%= answer.id %>"> <%= answer.content %></li></label>
+     </div>
+    <% end %>
+  </ul>
+  <input type="hidden" name="question_id" value="<%= @question.id %>" />
+  <input type="hidden" name="subject_id" value="<%= @subject_id %>" />
+  <input type="submit" value="Next" id="next-button" class="button-1">
+</form>

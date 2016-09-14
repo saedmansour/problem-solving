@@ -1,0 +1,29 @@
+<h1>Listing flow_chapters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flow</th>
+      <th>Chapter</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flow_chapters.each do |flow_chapter| %>
+      <tr>
+        <td><%= flow_chapter.flow_id %></td>
+        <td><%= flow_chapter.chapter_id %></td>
+        <td><%= link_to 'Show', flow_chapter %></td>
+        <td><%= link_to 'Edit', edit_flow_chapter_path(flow_chapter) %></td>
+        <td><%= link_to 'Destroy', flow_chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flow chapter', new_flow_chapter_path %>

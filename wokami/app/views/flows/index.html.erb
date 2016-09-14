@@ -1,0 +1,31 @@
+<h1>Listing flows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Score</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flows.each do |flow| %>
+      <tr>
+        <td><%= flow.subject_id %></td>
+        <td><%= flow.score %></td>
+        <td><%= flow.name %></td>
+        <td><%= link_to 'Show', flow %></td>
+        <td><%= link_to 'Edit', edit_flow_path(flow) %></td>
+        <td><%= link_to 'Destroy', flow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flow', new_flow_path %>

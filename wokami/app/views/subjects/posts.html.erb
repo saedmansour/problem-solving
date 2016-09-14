@@ -1,0 +1,22 @@
+<% content_for :head do %>
+	<%= javascript_include_tag "posts" %>
+<% end %>
+
+<div ng-app="wokami">
+	<div ng-controller="InterestsCtrl">
+		<form ng-submit="addInterest()">
+			<div class="input-group form-group">
+  			<input type="text" ng-model="newInterest.name" placeholder="url" class="form-control" />
+  			<span class="input-group-btn">
+  				<input type="submit" value="Add" class="btn btn-warning" />
+  			</span>
+  		</div>
+		</form>
+
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="interest in interests">
+				{{interest.name}}
+			</li>
+		</ul>	
+	</div>
+</div>

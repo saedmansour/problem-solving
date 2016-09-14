@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+/*
+		application.scss.erb
+*/
+/***************************************************************/
+/* Helvatica Neue */
+/*
+
+@import "font-awesome";
+
+@import url("http://fast.fonts.net/lt/1.css?apiType=css&c=b73775e5-8a2a-4e4d-8a3d-1bd953e05086&fontids=709887");
+@font-face{
+font-family:"saedmansour";
+src:font-url("717f8140-20c9-4892-9815-38b48f14ce2b.eot?#iefix");
+src:font-url("717f8140-20c9-4892-9815-38b48f14ce2b.eot?#iefix") format("eot"),font-url("/assets/saedmansour-c3efd19c7894fdd90a396ca2ece5731b.woff") format("woff"),font-url("d5f9f72d-afb7-4c57-8348-b4bdac42edbb.ttf") format("truetype"),font-url("05ad458f-263b-413f-b054-6001a987ff3e.svg#05ad458f-263b-413f-b054-6001a987ff3e") format("svg");
+}*/
+/***************************************************************/
+/* Fonts */
+/***************************************************************/
+/* Main styling */
+body {
+  background-color: whitesmoke; }
+
+a, a:hover {
+  text-decoration: none; }
+
+body > form {
+  background-color: white; }
+
+/***************************************************************/
+/* Header Menu */
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 999; }
+
+#logo img {
+  height: 70px;
+  position: relative;
+  top: 5px;
+  left: 15px;
+  float: left; }
+
+#logo h1 {
+  display: inline-block;
+  position: relative;
+  left: 60px;
+  top: -5px;
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  font-size: 14px; }
+
+#logoff {
+  font-size: 1.5em;
+  opacity: 0.4;
+  color: black;
+  position: absolute;
+  right: 20px;
+  top: 10px; }

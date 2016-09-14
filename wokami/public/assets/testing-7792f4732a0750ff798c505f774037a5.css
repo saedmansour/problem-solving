@@ -1,0 +1,13 @@
+#container-main {
+	margin: auto;
+	margin-top: 100px;
+	width: 930px;
+}
+
+/* bootstrap framework */
+.well {
+	background-color: white;
+	background-image: none;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);

@@ -1,0 +1,203 @@
+/* ------------------------------- 
+  		Fonts 												 
+ 	 ------------------------------- */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Dosis|Tauri|PT+Sans+Narrow|Patrick+Hand+SC|Sniglet|Gochi+Hand|Shadows+Into+Light|McLaren|Roboto|Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200italic,400italic|Fira+Sans:300,400,300italic|PT+Sans:400,400italic|Bad+Script|Allerta|Archivo+Narrow:400,400italic|Satisfy|Oregano:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic);
+
+
+/* general */
+
+body {
+	background-color: whitesmoke; /*rgb(155, 79, 79)*/ /*rgb(62, 122, 150);*/
+	height: 100%;
+	margin: 0px;
+	overflow-y: hidden;
+  font-family: 'open sans';
+}
+
+
+
+
+/* logo */
+
+#home-logo {
+  width: 10vw;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-top: -10vh;
+}
+
+
+/* bottom message */
+
+#start {
+		color: black;
+		font-weight: 700;
+		margin: auto;
+		border-radius: 10px;
+		font-size: 3vmax;
+		position: relative;
+		text-align: center;
+		bottom: 5vh;
+		position: relative;
+		cursor: pointer;
+		opacity: 0.6;
+		transition: opacity 1.0s ease-out;
+	}
+
+	#start {
+  	-webkit-animation-duration: 2s;
+  	-webkit-animation-delay: 1s;
+	}
+
+#start .message {
+	font-family: 'open sans';
+	color: white;
+  font-weight: 300;
+	opacity: 1.0;
+	font-size: 0.3em;
+}
+
+#open-path {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 2s;
+  }
+
+/* ------------------------------- 
+  		ngView Animate 					
+
+ 	 ------------------------------- */
+
+#view {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}   
+
+
+.slideup-onleave {
+}
+.slideup-onleave.ng-enter,
+.slideup-onleave.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.slideup-onleave.ng-leave {
+    top: 0;
+}
+.slideup-onleave.ng-leave-active {
+    top: -100%;
+}
+
+
+.slidedown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.slidedown.ng-enter,
+.slidedown.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slidedown.ng-enter {
+    top: -100%;
+}
+.slidedown.ng-enter-active {
+    top: 0;
+}
+.slidedown.ng-leave {
+    top: 0;
+}
+.slidedown.ng-leave-active {
+    top: 100%;
+}
+
+.slideup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+.slideup.ng-enter,
+.slideup.ng-leave {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slideup.ng-enter {
+    top: 100%;
+}
+.slideup.ng-enter-active {
+    top: 0;
+}
+.slideup.ng-leave {
+    top: 0;
+}
+.slideup.ng-leave-active {
+    top: -100%;
+}
+
+
+/* */
+
+  @media only screen and (max-width: 40em) { 
+    #home-logo {
+      width: 40vw;
+    }
+    #start .message {
+      font-size: 1em;
+    }
+  }
+  @media only screen and (min-width: 40em) { 
+    #start .message {
+      font-size: 70%;
+      line-height: 1.45em;
+    }
+    #home-logo {
+      height: 20%;
+      width: auto;
+    }
+ }
+
+/* YouTube Embed */
+ .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* */
+
+.arrow {
+  cursor: pointer;
+}

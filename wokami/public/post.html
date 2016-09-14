@@ -1,0 +1,30 @@
+<link href="index.css" rel="stylesheet" />
+
+<!--<div class="post" id="post" style="background-image: {{post.backgroundImage}}; ">-->
+<div class="post"  id="post" style="background-color: {{post.background_color}}; ">
+	<!-- TODO: smaller logo -->
+	<a href="/"><div id="image-container"><img id="logo-image" src="images/outline.png" /></div></a>
+	<div id="navigation-icon" ng-click="goNavigationOrFeed()" ng-if="subject.is_navigation">
+		<svg viewBox="0 0 32 32" style="position: relative; display: block;margin: auto; padding:10px;width: 50px; height: 45px; auto; fill: white;"><g filter=""><use xlink:href="#compass"></use></g></svg>
+	</div>
+	<!--<div class="subject">Learning Paths: {{pathName}}</div>-->
+	
+	<!--<iframe id="post-content" width="533" height="400" src="//www.youtube-nocookie.com/embed/AWcglbj5sWM?rel=0&autoplay=0&showinfo=1&fs=1&modestbranding=1&theme=light" frameborder="0" allowfullscreen></iframe>-->
+	<!--<div my-youtube code="code"></div>-->
+	<div class="content-container">
+		<div ng-click="prevPost()" ng-if="isPrevPost()" id="arrow-up" class="arrow"><i class="fa fa-chevron-circle-up"></i></div>
+		<div class="content" id="postContent" ng-class="post.content_css_classes">
+			<div class="sample">
+				<img  ng-src="{{post.image}}" style="{{post.image_style}}" />
+			</div>
+			<div class="details-wrapper">
+				<div class="details">
+					<div class="title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></div>
+					<div class="details-info" ng-bind-html="post.details"></div>
+					<div style="padding-bottom: 20px"><a href="{{post.url}}" analytics-on="click" analytics-event="PostOpen" analytics-category="Posts" analytics-label="Post was opened." target="_blank" class="start-learning">open</a></div>
+				</div>
+			</div>
+		</div>
+		<div ng-click="nextPost()" ng-if="isNextPost()" id="arrow-down" class="arrow"><i class="fa fa-chevron-circle-down"></i></div>
+	</div>
+</div>

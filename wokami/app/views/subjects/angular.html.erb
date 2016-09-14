@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="wokamiApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  <script src="<%= asset_path "controllers.js" %>"></script>
+</head>
+<body ng-controller="subjectListCtrl">
+	<div>
+		<ul>
+		  <li ng-repeat="subject in subjects">
+		    <span>{{subject.name}}</span>
+		    <p>
+		      {{subject.description}}
+		    </p>
+		  </li>
+		</ul>
+		<p># Subjects: 2</p>\
+
+
+		hi world
+	</div>
+</body>
+</html>

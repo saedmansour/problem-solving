@@ -1,0 +1,24 @@
+<style>
+	.link-unstyled, .link-unstyled:hover {
+		color: inherit;
+		text-decoration: none;
+	}
+</style>
+
+<header>
+	<section id="logo">
+		<a href="/"><img src="<%= asset_path('wokami_book_head.png')%>" /></a>
+		<!--<h1> <a class="link-unstyled" href="/w/<%= @subject.short_name unless @subject.nil?  %>"><%= @subject.name unless @subject.nil? %></a></h1>-->
+
+		
+    <!--<% if current_user  %>
+    	
+    	<%= link_to destroy_user_session_path, :method => :delete  do %>
+		
+		  <i id="logoff" class="fa fa-power-off"></i>
+		  <% end %>
+    <% else %>
+    <a href="/oldhome" id="logoff" style="font-size: 14px; font-family: 'saedmansour'">Login</a>
+    <% end %>-->
+	</section>
+</header>

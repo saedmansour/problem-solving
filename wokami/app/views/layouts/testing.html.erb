@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>wokami</title>
+
+  
+  <!-- Foundation UI -->
+   
+  <!--<link href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/css/foundation.css" rel="stylesheet" />
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/css/normalize.min.css" rel="stylesheet" />-->
+    
+  <!-- Bootstrap UI -->
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+  <!-- FavIcon -->
+  <link href="/favicon.png" rel="icon" />
+  
+  <%= stylesheet_link_tag     "application" %>
+  <%= stylesheet_link_tag     "testing"     %>
+  
+  <%= javascript_include_tag  "application" %>
+
+  <%= yield :head %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div id="container-main">
+    <%= render "shared/head" %>
+    <%= yield %>
+  </div>
+
+</body>
+</html>

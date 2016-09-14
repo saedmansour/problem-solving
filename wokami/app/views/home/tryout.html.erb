@@ -1,0 +1,47 @@
+<%
+
+    client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = "GYU15hnkfQjJOc2HjHVv2w"
+        config.consumer_secret     = "IU4tBWTlYazueURZ1HZYuR5zHeWyk5CUApXBZzQdEA"
+        config.access_token        = "70969881-nfomP1JWrFS6DyEFSpnUSLu10GHUJys5qOaGH9q5I"
+        config.access_token_secret = "W0NqFR2ZmfMm8kqh7hcYbPbOF8vwV85qE4I4QmsM9ObxI"
+    end 
+
+    user_name = params[:screen_name].to_s
+    user_name[0] = ''
+    user = client.user(user_name)
+    
+%>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+    $('#loading-message', parent.document).css('visibility', 'hidden');
+</script>
+
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+    body {
+        font-family: 'open sans';
+    }
+</style>
+
+
+<div style="background: <%#= user.profile_sidebar_fill_color %>; padding: 20px;">
+<img src="<%= user.profile_image_url %>" style="border-radius: 10px; position: absolute; left: 150px; bottom: 20px;" />
+
+<div><img src="https://g.twimg.com/Twitter_logo_blue.png" style="height: 30px; position: absolute; left: 100px; top: 20px;" /></div>
+
+<div style="margin-top: 40px;">
+    <a href="https://twitter.com/<%= user.screen_name %>" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @<%= user.screen_name %></a>
+    <div><%= user.name %></div>
+    <div><a href="<%= user.website %>" target="_blank">Website</a></div>
+    <div>followers: <%= user.followers_count %></div>
+    <div><%#= user.status.text %></div>
+    <div><%= user.location %></div>
+</div>
+
+</div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

@@ -1,0 +1,41 @@
+<%= form_for(@subject) do |f| %>
+  <% if @subject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
+
+      <ul>
+      <% @subject.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :required => true %>
+  </div>
+  <div class="field">
+    <label>Drescription</label><br>
+    <%= f.text_field :description,  style: "width: 450px;", :required => true %>
+  </div>
+  <div class="field">
+    <label>Image Name</label><br>
+    <%= f.text_field :image,  style: "width: 450px;" %>
+  </div>
+  <div class="field">
+    <label>Image Css</label><br>
+    <%= f.text_field :image_css,  style: "width: 450px;" %>
+  </div>
+  <div class="field">
+    <label>Subject Type</label><br>
+    <%= f.text_field :subject_type,  style: "width: 450px;" %>
+  </div>
+  <div class="field">
+    <label>Root Question Id</label><br>
+    <%= f.text_field :root_question_id,  style: "width: 450px;" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

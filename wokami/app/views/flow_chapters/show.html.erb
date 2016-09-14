@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flow:</strong>
+  <%= @flow_chapter.flow_id %>
+</p>
+
+<p>
+  <strong>Chapter:</strong>
+  <%= @flow_chapter.chapter_id %>
+</p>
+
+<%= link_to 'Edit', edit_flow_chapter_path(@flow_chapter) %> |
+<%= link_to 'Back', flow_chapters_path %>

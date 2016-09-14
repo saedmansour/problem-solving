@@ -1,0 +1,105 @@
+<style>
+		#logo {
+			width: 50px;
+			padding: 10px;
+			box-sizing: content-box;		
+
+		}
+		#image-container {
+			position: relative;
+			float: left;
+		}
+
+	@media only screen and (max-width: 40em) { 
+		#logo {
+			width: 40px;
+			padding-top: 10px;
+			padding-right: 0px;
+		}
+
+		#image-container {
+			box-sizing: content-box;
+			cursor: pointer;
+			display: inline-block;
+			transition: opacity 2.0s ease;
+		}	
+
+		.arrow {
+			font-size: 1.5em;
+			padding-top: 1px; padding-bottom:1px;
+		}
+	}
+	@media only screen and (min-width: 40em) { 
+		#image-container {
+			box-sizing: content-box;
+			margin-top: 1%;
+			margin-right: 1%;
+			cursor: pointer;
+			border-radius: 50%;
+			padding: 5px;
+			background-color: black;
+			display: inline-block;
+			opacity: 0.7;
+		}
+
+		#image-container:hover {
+			opacity: 1.0;
+		}
+
+		.arrow {
+			font-size: 2em;
+			padding-top: 10px; padding-bottom: 10px;
+		}
+	}
+</style>
+
+<div style="height: 100%; width: 100%; background-color: {{post.background_color}} ;">
+	
+	<div class="row" style="max-width: 100%;">
+		<div class="column" style="height: 100%">
+			<a href="/" ng-click="$parent.effect = 'slidedown'"><div id="image-container">
+				<img id="logo" src="/images/abstract.png" />
+			</div></a>
+		</div>
+	</div>
+	
+	<div class="row" style="height: 100%">
+		<div class="small-10 large-8 large-centered small-centered columns" style="height: 50%;">
+			<div class="row">
+				<div class="small-1 large-centered small-centered columns" style="padding-bottom: 3px;">
+					<div ng-click="prevPost()" ng-show="isPrevPost()" id="arrow-up" class="arrow"><i class="fa fa-chevron-circle-up"></i></div>
+				</div>
+			</div>
+
+			<div class="row" style="background-color: white;">
+				<div class="small-11 large-11 large-centered small-centered columns" style="text-align: center; padding-top: 5vh; padding-bottom: 2vh;" ng-bind-html="post.title">
+					
+				</div>
+			</div>
+
+			<div class="row" style="height: 100%;">
+				<div style="height: 100%;">
+					<div class="video-container" style="background: rgba(245,245,245, 0.7); padding: 10px; height: 100%;">
+         <!--<iframe src="http://www.youtube.com/embed/dFVxGRekRSg" frameborder="0" width="560" height="315" style="padding: 1vmax;"></iframe>-->
+         <!--<img ng-src="{{post.image}}" />-->
+         		<div class="details-info" ng-bind-html="post.content"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="background-color: rgba(255, 255, 255, 1.0);" ng-if="post.is_subect">
+				<div id="open-path" class="small-6 large-centered small-centered columns" style=" padding-top: 5px; padding-bottom: 5px;text-align: center; vertical-align:middle; line-height: 50px;">
+					<a href="/#/{{post.id}}/posts/">Start Learning <i class="fa fa-angle-right fa-2x" style="display: inline-block; position: relative; line-height: 20px; top:4px; left:5px; "></i></a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-1 large-centered small-centered columns" style="text-align: center; padding-top: 10px;">
+					<div ng-click="nextPost()" ng-show="isNextPost()" id="arrow-down" class="arrow"><i class="fa fa-chevron-circle-down"></i></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+</div>

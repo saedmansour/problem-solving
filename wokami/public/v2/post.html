@@ -1,0 +1,25 @@
+<!--<div class="post" id="post" style="background-image: {{post.backgroundImage}}; ">-->
+<div class="post" id="post" style="background-color: {{post.backgroundColor}}; ">
+	<!-- TODO: smaller logo -->
+	<a href="/"><div id="image-container"><img id="logo-image" src="images/outline.png" /></div></a>
+	<div class="subject">Learning Paths: {{pathName}}</div>
+	
+	<!--<iframe id="post-content" width="533" height="400" src="//www.youtube-nocookie.com/embed/AWcglbj5sWM?rel=0&autoplay=0&showinfo=1&fs=1&modestbranding=1&theme=light" frameborder="0" allowfullscreen></iframe>-->
+	<!--<div my-youtube code="code"></div>-->
+	<div>
+		<div ng-click="prevPost()" ng-show="isPrevPost()" id="arrow-up" class="arrow"><i class="fa fa-chevron-circle-up"></i></div>
+		<div class="content">
+			<div class="sample">
+				<img src="maha.jpg" />
+			</div>
+			<div class="details">
+					<div class="title">{{post.title}}</div>
+					<div ng-bind-html="post.details"></div>
+					<div style="padding-bottom: 20px"><a href="" class="start-learning">start</a></div>
+
+			</div>
+		</div>
+		<div ng-click="nextPost()" ng-show="isNextPost()" id="arrow-down" class="arrow"><i class="fa fa-chevron-circle-down"></i></div>
+	</div>
+		
+</div>

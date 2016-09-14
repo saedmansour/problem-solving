@@ -1,0 +1,8 @@
+<%= form_for @subject, :url => '' do |f| %>
+  <%= f.file_field :image %><br />
+  <%= f.submit %>
+<% end %>
+
+<script>
+	console.log(<%= raw @result.to_json %>)
+</script>

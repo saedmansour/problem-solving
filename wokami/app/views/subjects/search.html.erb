@@ -1,0 +1,116 @@
+<style>
+	#main {
+		margin: auto;
+	}
+	/* centered columns styles */
+	.row {
+		margin: 0;
+	}
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+.subject-title {
+	margin-top:20vh;
+	height: 20vh;
+}
+.subject-title h1 {
+		font-family: 'open sans';
+		font-weight: 300;
+}
+.results {
+	margin-top: 8vh;
+	max-width: 930px;
+	margin-left:auto; margin-right: auto;
+	margin-bottom: 16vh;
+}
+.result {
+	margin-top: 10vh;
+	color: black;
+	font-size: 2em;
+	text-align: left;
+	font-weight: 600;
+}
+.result a {
+	color: grey;
+}
+.description {
+	text-align: left;
+	font-size: 0.5em;
+	color: grey;
+	font-weight: 300;
+}
+</style>
+
+<div class="row row-centered subject-title">
+	<h1><%= @subject.name %></h1>
+</div>
+<form id="search_form" action="" method="post">
+	<div class="row row-centered form-group">
+		<% @tags_contexts.each do |tag_context| %>
+			<div class="col-md-3 col-centered">
+				<select class="form-control">
+					<option selected="selected">Search by <%= tag_context.name %>...</option>
+					<% tag_context.tags.order(points: :desc, name: :asc).each do |tag| %>
+						<option value="<%= tag.id %>"><%= tag.name %></option>
+					<% end %>
+				</select>
+			</div>
+		<% end %>
+	</div>
+</form>
+
+<div class="row row-centered form-group results">
+<% if !@posts.nil? %>
+	<hr />
+	<div class="row">
+		<% if @posts.empty? %>
+			<h3>There are no results</h3>
+		<% else %>
+			<h4>Search Results</h4>
+			<% @posts.each do |post| %>
+				<div class="row result">
+					<div class="col-md-12">
+						<div class="row">
+							<a href="<%= post.url %>"><%= post.title %></a><br />
+						</div>
+						<div class="row">
+							<div class="description"><%= post.description %></div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>
+</div>
+
+<script>
+$( "select" )
+  .change(function() {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+    	if($( this ).attr('value') != undefined ) { 
+      	str += $( this ).attr('value');
+      }
+    });
+    if(str != undefined && str.length >= 1) {
+    	$('#search_form').append('<input type="hidden" name="query" value="'+ str + '" />');
+    	$('#search_form').submit();	
+    }
+  })
+  .trigger( "change" );
+
+  // $('select').on('change', function (e) {
+  //  var optionSelected = $("option:selected", this);
+  //  var valueSelected = this.value;
+  //  ....
+	//});
+</script>

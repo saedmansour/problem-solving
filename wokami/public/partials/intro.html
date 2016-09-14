@@ -1,0 +1,18 @@
+		<link href="index.css" rel="stylesheet" />
+		<link href="animate.css" rel="stylesheet" />
+
+<div class="main-container">
+	<!--<section id="page" style="background: {{backgroundColor}} url({{backgroundImage}}) no-repeat center center fixed; opacity: {{opacity}}; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">-->
+	<section id="page" style="{{subject.general_style}}; url({{backgroundImage}}) no-repeat center center fixed; opacity: {{opacity}}; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+	
+	</section>
+	<div class="text-title-container" style="color: {{titlesColor}};">
+		<!--<div id="message">find your learning path...</div>-->
+		<div id="title" style="{{subject.intro_message_style}}">{{pathName}}</div>
+	</div>
+	<a href="/"><img id="intro-logo" src="images/abstract.png" /></a>
+	<!--
+		<div id="start" ng-click="nextPost()"><i  style="color: {{titlesColor}};" class="fa fa-chevron-circle-down"></i></div>
+	-->
+	<div id="start" ng-click="goNavigationOrFeed()"><i  style="color: {{titlesColor}};" class="fa fa-chevron-circle-down"></i></div>
+</div>

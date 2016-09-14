@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @question.content %>
+</p>
+
+<p>
+  <strong>Is multi:</strong>
+  <%= @question.is_multi %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @question.subject_id %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @question.weight %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

@@ -1,0 +1,47 @@
+#logo-image {
+	width: 100px;
+}
+
+.arrow {
+	font-size: 6em;
+}
+
+.post .content-container {
+	width: 90%;
+	max-height: 80%;
+}
+
+.post .subject {
+	width: 100%;
+	font-size: 3em;
+	text-align: center;
+}
+
+
+.post .sample {
+	display: none;
+}
+
+.post .details {
+	width: 100%;
+	min-width: 100%;
+	margin-right: 0%;
+	margin: 0%;
+	padding: 5%;
+}
+
+.start-learning , .post .title{
+	font-size: 3em;
+	width: 50%;
+}
+
+.post .details-info ul {
+	width: 90%;
+	font-size: 2.8em;
+}
+
+
+.post .sample img {
+	max-width: 50%;
+	max-height: 50%;
+}

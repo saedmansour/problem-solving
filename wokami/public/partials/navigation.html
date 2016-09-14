@@ -1,0 +1,71 @@
+
+
+<style>
+	#main-container {
+		background-color:  #8ADCB3;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0; left: 0;
+		overflow-y: hidden;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	button {
+		width: 115px;
+		height: 26px;
+		font-size: 0.7em;
+		padding: 1px;
+		border: 2px solid rgb(255, 255, 255);
+		border: 2px solid rgba(255, 255, 255, .5);
+		/*background-color: transparent !important;*/
+		background-color: white;
+		color: #8ADCB3;
+		margin-bottom: 10px;
+		text-align: center;
+		text-decoration: none;
+		text-shadow: none;
+		-webkit-border-radius: 13px;
+		-moz-border-radius: 13px;
+		border-radius: 13px;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		-webkit-transition: 0.25s;
+		-moz-transition: 0.25s;
+		-o-transition: 0.25s;
+		transition: 0.25s;
+		-webkit-backface-visibility: hidden;
+		cursor: pointer;
+		display: block;
+		margin:auto;
+		margin-top: 10px;
+	}
+
+	button:hover {
+		border: 2px solid rgb(255, 255, 255);
+		opacity: 0.6;
+	}
+</style>
+
+<link href="index.css" rel="stylesheet" />
+
+<div id="main-container">
+
+<svg viewBox="0 0 32 32" style="position: relative; display: block;margin: auto; margin-top: 80px;;width: 140px; height: auto; fill: white;"><g filter=""><use xlink:href="#compass"></use></g></svg>
+
+<div style="position: relative; margin-top: 50px;">
+	<div ng-repeat="chapter in chapters"><a href="/#/{{chapter.subject_id}}/chapters/{{chapter.id}}/posts/1"><button>{{chapter.name}}</button></a></div>
+</div>
+
+</div>
+
+<script>
+	// svg icons request file
+	var url = '/assets/iconmelon.svg';
+	var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
+	document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild);
+</script>

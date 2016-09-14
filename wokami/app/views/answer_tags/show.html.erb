@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer_tag.answer_id %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @answer_tag.tag %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @answer_tag.weight %>
+</p>
+
+<%= link_to 'Edit', edit_answer_tag_path(@answer_tag) %> |
+<%= link_to 'Back', answer_tags_path %>

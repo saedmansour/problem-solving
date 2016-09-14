@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @flow.subject_id %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @flow.score %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @flow.name %>
+</p>
+
+<%= link_to 'Edit', edit_flow_path(@flow) %> |
+<%= link_to 'Back', flows_path %>

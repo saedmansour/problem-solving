@@ -1,0 +1,53 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>  
+  <div class="field">
+    <%= f.label :tag_list %><br>
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="field">
+    <%= f.label :media_type %><br>
+    <%= f.radio_button(:media_type, "video") %>
+    <%= label_tag(:video, "Video") %>
+    <%= f.radio_button(:media_type, "text") %>
+    <%= label_tag(:text, "text") %>
+  </div>  
+  <div class="field">
+    <%= f.label :minutes %><br>
+    <%= f.text_field :minutes %>
+  </div>  
+  <div class="field">
+    <%= f.label :chapter_id %><br>
+    <%= f.select(:chapter_id, @post.subject.chapters.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) unless @post.subject.nil? %>
+
+  </div>    
+  <div class="field" style="display: none;">
+    <%= f.label :subject_id %><br>
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

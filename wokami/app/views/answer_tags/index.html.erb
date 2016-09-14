@@ -1,0 +1,31 @@
+<h1>Listing answer_tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th>Tag</th>
+      <th>Weight</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answer_tags.each do |answer_tag| %>
+      <tr>
+        <td><%= answer_tag.answer_id %></td>
+        <td><%= answer_tag.tag %></td>
+        <td><%= answer_tag.weight %></td>
+        <td><%= link_to 'Show', answer_tag %></td>
+        <td><%= link_to 'Edit', edit_answer_tag_path(answer_tag) %></td>
+        <td><%= link_to 'Destroy', answer_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Answer tag', new_answer_tag_path %>
